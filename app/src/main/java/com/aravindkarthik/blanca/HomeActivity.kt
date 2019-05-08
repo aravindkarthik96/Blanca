@@ -22,7 +22,7 @@ class HomeActivity : AppCompatActivity() {
 
         codeEditable.lines().forEachIndexed { index, codeLine ->
             when {
-                codeLine.startsWith("draw") -> handleDraw()
+                codeLine.startsWith("drawLine") -> handleDraw(index,codeLine)
                 codeLine.startsWith("//") -> handleComments()
                 else -> showError(index, codeLine)
             }
@@ -38,7 +38,15 @@ class HomeActivity : AppCompatActivity() {
         Log.d("BLANCA INTERPRETER", "UNKNOWN SYNTAX AT $index : $codeLine")
     }
 
-    private fun handleDraw() {
+    private fun handleDraw(index: Int, codeLine: String) {
         Log.d("BLANCA INTERPRETER", "Draw handler: drawing")
+        when {
+            codeLine.startsWith("drawLine(") && codeLine.endsWith(")") -> drawLine(codeLine)
+            else -> showError(index, codeLine)
+        }
+    }
+
+    private fun drawLine(codeLine: String) {
+        Log.d("BLANCA INTERPRETER", "Draw handler: drawing line")
     }
 }
