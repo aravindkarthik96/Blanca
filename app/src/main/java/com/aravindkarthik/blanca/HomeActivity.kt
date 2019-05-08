@@ -21,20 +21,24 @@ class HomeActivity : AppCompatActivity() {
         val codeString = codeEditable.toString()
 
         codeEditable.lines().forEachIndexed { index, codeLine ->
-            if (codeLine.startsWith("draw")) {
-                handleDraw()
-            } else {
-                showError(index, codeLine)
+            when {
+                codeLine.startsWith("draw") -> handleDraw()
+                codeLine.startsWith("//") -> handleComments()
+                else -> showError(index, codeLine)
             }
         }
 
     }
 
+    private fun handleComments() {
+        Log.d("BLANCA INTERPRETER", "ignoring comment")
+    }
+
     private fun showError(index: Int, codeLine: String) {
-        Log.d("UNKNOWN SYNTAX AT $index", codeLine)
+        Log.d("BLANCA INTERPRETER", "UNKNOWN SYNTAX AT $index : $codeLine")
     }
 
     private fun handleDraw() {
-        Log.d("Draw handler", "drawing")
+        Log.d("BLANCA INTERPRETER", "Draw handler: drawing")
     }
 }
