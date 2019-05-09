@@ -24,10 +24,25 @@ class HomeActivity : AppCompatActivity() {
             when {
                 codeLine.startsWith("drawLine") -> handleDraw(index,codeLine)
                 codeLine.startsWith("//") -> handleComments()
+                codeLine.startsWith("delay") -> handleDelay(codeLine, index)
+                codeLine.startsWith("$") -> handleVariables()
                 else -> showError(index, codeLine)
             }
         }
 
+    }
+
+    private fun handleVariables() {
+
+    }
+
+    private fun handleDelay(codeLine: String, index: Int) {
+        when {
+            codeLine.startsWith("delay(") && codeLine.endsWith(")") -> {
+                Log.d("BLANCA INTERPRETER", "pausing for")
+            }
+            else -> showError(index, codeLine)
+        }
     }
 
     private fun handleComments() {
