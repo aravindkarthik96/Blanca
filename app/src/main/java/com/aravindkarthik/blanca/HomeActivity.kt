@@ -14,6 +14,7 @@ class HomeActivity : AppCompatActivity() {
         run_code.setOnClickListener {
             interpretCode()
         }
+
     }
 
     private fun interpretCode() {
@@ -62,6 +63,6 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun drawLine(codeLine: String) {
-        Log.d("BLANCA INTERPRETER", "Draw handler: drawing line")
+        canvasView.drawLine()
     }
 }
