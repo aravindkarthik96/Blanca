@@ -1,14 +1,26 @@
 package com.aravindkarthik.blanca
 
+import android.app.Activity
+import android.app.ActivityManager
+import android.content.ContentValues.TAG
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+
+private const val MIN_OPENGL_VERSION = 3.0
 
 class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!checkIsSupportedDeviceOrFinish(this)) {
+            return
+        }
+
         setContentView(R.layout.activity_main)
 
         run_code.setOnClickListener {
@@ -63,6 +75,20 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun drawLine(codeLine: String) {
-        canvasView.drawLine()
+        //canvasView.drawLine()
     }
+}
+
+fun checkIsSupportedDeviceOrFinish(activity: Activity): Boolean {
+    val openGlVersionString = (activity.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager)
+        .deviceConfigurationInfo
+        .glEsVersion
+    if (java.lang.Double.parseDouble(openGlVersionString) < MIN_OPENGL_VERSION) {
+        Log.e(TAG, "Sceneform requires OpenGL ES 3.0 later")
+        Toast.makeText(activity, "Sceneform requires OpenGL ES 3.0 or later", Toast.LENGTH_LONG)
+            .show()
+        activity.finish()
+        return false
+    }
+    return true
 }
