@@ -22,9 +22,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.ar.sceneform.ArSceneView
-        android:id="@+id/canvasView"
-        android:layout_width="match_parent"
+    <fragment android:name="com.google.ar.sceneform.ux.ArFragment"
+              android:id="@+id/canvasView"
+              android:layout_width="match_parent"
         android:layout_height="300dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
