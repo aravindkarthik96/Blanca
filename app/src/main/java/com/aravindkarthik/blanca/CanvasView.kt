@@ -26,6 +26,7 @@ class CanvasView @JvmOverloads constructor(context: Context,
     }
 
     fun clear() {
+        path = Path()
         invalidate()
     }
 

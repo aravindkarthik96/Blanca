@@ -3,11 +3,8 @@ package com.aravindkarthik.blanca
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.canvasView
-import kotlinx.android.synthetic.main.activity_main.code_editor
-import kotlinx.android.synthetic.main.activity_main.run_code
-
-private const val MIN_OPENGL_VERSION = 3.0
+import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.Exception
 
 class HomeActivity : AppCompatActivity() {
 
@@ -16,13 +13,13 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         run_code.setOnClickListener {
+            canvasView.clear()
             interpretCode()
         }
     }
 
     private fun interpretCode() {
         val codeEditable = code_editor.text
-        val codeString = codeEditable.toString()
 
         codeEditable.lines().forEachIndexed { index, codeLine ->
             when {
@@ -53,36 +50,47 @@ class HomeActivity : AppCompatActivity() {
         Log.d("BLANCA INTERPRETER", "ignoring comment")
     }
 
-    private fun showError(index: Int, codeLine: String) {
-        Log.d("BLANCA INTERPRETER", "UNKNOWN SYNTAX AT $index : $codeLine")
+    private fun showError(index: Int, codeLine: String, message: String? = "UNKNOWN SYNTAX") {
+        Log.d("BLANCA INTERPRETER", "$message AT $index : $codeLine")
     }
 
     private fun handleDraw(index: Int, codeLine: String) {
         Log.d("BLANCA INTERPRETER", "Draw handler: drawing")
         when {
-            codeLine.startsWith("drawLine(") && codeLine.endsWith(")") -> drawLine(codeLine)
+            codeLine.startsWith("drawLine(") && codeLine.endsWith(")") -> drawLine(codeLine, index)
             codeLine.startsWith("drawHLine(") && codeLine.endsWith(")") -> drawHorizontalLine(
-                    codeLine.parseParams())
+                    codeLine, index)
             codeLine.startsWith("drawVLine(") && codeLine.endsWith(")") -> drawVerticalLine(
-                    codeLine)
-            codeLine.startsWith("drawCircle(") && codeLine.endsWith(")") -> drawCircle(codeLine)
+                    codeLine, index)
+            codeLine.startsWith("drawCircle(") && codeLine.endsWith(")") -> drawCircle(codeLine,
+                    index)
             else -> showError(index, codeLine)
         }
     }
 
-    private fun drawVerticalLine(codeLine: String) {
+    private fun drawVerticalLine(codeLine: String, index: Int) {
 
     }
 
-    private fun drawHorizontalLine(codeLine: List<String>?) {
+    private fun drawHorizontalLine(codeLine: String, index: Int) {
 
     }
 
-    private fun drawCircle(codeLine: String) {
-        canvasView.drawCircle(20)
+    private fun drawCircle(codeLine: String, index: Int) {
+        val params = codeLine.parseParams()
+
+        if (params?.size == 3) {
+            try {
+                canvasView.drawCircle(params[0].toInt(), params[1].toInt(), params[2].toInt())
+            } catch (exception : Exception) {
+                showError(index, codeLine, "INVALID METHOD PARAMETERS DATA TYPES FOR drawCircle(int, int, int)")
+            }
+        } else {
+            showError(index, codeLine, "INVALID PARAMETERS COUNT, EXPECTED 3 FOUND ${params?.size}")
+        }
     }
 
-    private fun drawLine(codeLine: String) {
+    private fun drawLine(codeLine: String, index: Int) {
         canvasView.drawLine(10, 20, 20, 20)
     }
 }
