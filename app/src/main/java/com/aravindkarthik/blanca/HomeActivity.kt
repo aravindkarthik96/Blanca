@@ -3,10 +3,14 @@ package com.aravindkarthik.blanca
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.aravindkarthik.blanca.lang.core.Function
+import com.aravindkarthik.blanca.lang.core.parseParams
+import com.aravindkarthik.blanca.lang.drawing.DrawCircleFunction
 import kotlinx.android.synthetic.main.activity_main.*
-import java.lang.Exception
 
 class HomeActivity : AppCompatActivity() {
+
+    val functions = mutableListOf<Function>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,6 +20,8 @@ class HomeActivity : AppCompatActivity() {
             canvasView.clear()
             interpretCode()
         }
+
+        functions.add(DrawCircleFunction(canvasView))
     }
 
     private fun interpretCode() {
@@ -23,11 +29,23 @@ class HomeActivity : AppCompatActivity() {
 
         codeEditable.lines().forEachIndexed { index, codeLine ->
             when {
-                codeLine.startsWith("draw") -> handleDraw(index, codeLine)
                 codeLine.startsWith("//") -> handleComments()
                 codeLine.startsWith("delay") -> handleDelay(codeLine, index)
                 codeLine.startsWith("$") -> handleVariables()
-                else -> showError(index, codeLine)
+                else -> {
+                    functions.forEach {
+                        if (codeLine.startsWith(it.name)
+                            && codeLine.endsWith(")")
+                        ) {
+                            val arguments = codeLine.parseParams()
+                            if (it.validateArguments(arguments)) {
+                                it.invokeFunction(index,arguments!!)
+                            } else {
+                                showError(index, codeLine, "INVALID ARGUMENTS")
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -59,11 +77,15 @@ class HomeActivity : AppCompatActivity() {
         when {
             codeLine.startsWith("drawLine(") && codeLine.endsWith(")") -> drawLine(codeLine, index)
             codeLine.startsWith("drawHLine(") && codeLine.endsWith(")") -> drawHorizontalLine(
-                    codeLine, index)
+                codeLine, index
+            )
             codeLine.startsWith("drawVLine(") && codeLine.endsWith(")") -> drawVerticalLine(
-                    codeLine, index)
-            codeLine.startsWith("drawCircle(") && codeLine.endsWith(")") -> drawCircle(codeLine,
-                    index)
+                codeLine, index
+            )
+            codeLine.startsWith("drawCircle(") && codeLine.endsWith(")") -> drawCircle(
+                codeLine,
+                index
+            )
             else -> showError(index, codeLine)
         }
     }
@@ -82,8 +104,12 @@ class HomeActivity : AppCompatActivity() {
         if (params?.size == 3) {
             try {
                 canvasView.drawCircle(params[0].toInt(), params[1].toInt(), params[2].toInt())
-            } catch (exception : Exception) {
-                showError(index, codeLine, "INVALID METHOD PARAMETERS DATA TYPES FOR drawCircle(int, int, int)")
+            } catch (exception: Exception) {
+                showError(
+                    index,
+                    codeLine,
+                    "INVALID METHOD PARAMETERS DATA TYPES FOR drawCircle(int, int, int)"
+                )
             }
         } else {
             showError(index, codeLine, "INVALID PARAMETERS COUNT, EXPECTED 3 FOUND ${params?.size}")

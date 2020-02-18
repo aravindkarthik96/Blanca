@@ -1,4 +1,4 @@
-package com.aravindkarthik.blanca
+package com.aravindkarthik.blanca.lang.core
 
 fun String.parseParams(): List<String>? {
     val parametersString = this.substringAfter("(").substringBeforeLast(")")

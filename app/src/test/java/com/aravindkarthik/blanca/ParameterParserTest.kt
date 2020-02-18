@@ -1,5 +1,6 @@
 package com.aravindkarthik.blanca
 
+import com.aravindkarthik.blanca.lang.core.parseParams
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith

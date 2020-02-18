@@ -40,11 +40,6 @@ class CanvasView @JvmOverloads constructor(context: Context,
         invalidate()
     }
 
-    fun drawCircle(radius: Int) {
-        path.addCircle(100f, 100f, radius.toFloat(), Path.Direction.CW)
-        invalidate()
-    }
-
     fun drawCircle(radius: Int, xPos: Int, yPos: Int) {
         path.addCircle(xPos.toFloat(), yPos.toFloat(), radius.toFloat(), Path.Direction.CW)
         invalidate()
