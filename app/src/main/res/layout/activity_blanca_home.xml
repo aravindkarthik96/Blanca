@@ -49,6 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:focusable="true"
         android:src="@drawable/blanca_compile_icon"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,8 +73,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
         android:fontFamily="sans-serif-medium"
         android:text="Editor"
+        android:onClick="handleEditorTitleClick"
         android:textColor="#000000"
         android:textSize="24sp"
         android:translationZ="100dp"
@@ -85,6 +90,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="handleLoggerTitleClick"
         android:fontFamily="sans-serif-medium"
         android:text="Logger"
         android:textColor="#72000000"
@@ -92,5 +100,31 @@
         android:translationZ="100dp"
         app:layout_constraintStart_toEndOf="@+id/editorTitle"
         app:layout_constraintTop_toBottomOf="@+id/contentNotch" />
+
+    <TextView
+        android:id="@+id/editorContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Editor"
+        android:textColor="#000000"
+        android:translationZ="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/contentCard"
+        app:layout_constraintEnd_toEndOf="@+id/contentCard"
+        app:layout_constraintStart_toStartOf="@+id/contentCard"
+        app:layout_constraintTop_toBottomOf="@+id/editorTitle" />
+
+    <TextView
+        android:id="@+id/loggerContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="logger"
+        android:visibility="gone"
+        android:textColor="#000000"
+        android:translationZ="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/contentCard"
+        app:layout_constraintEnd_toEndOf="@+id/contentCard"
+        app:layout_constraintStart_toStartOf="@+id/contentCard"
+        app:layout_constraintTop_toBottomOf="@+id/editorTitle" />
+
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

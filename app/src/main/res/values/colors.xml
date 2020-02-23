@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#62B656</color>
     <color name="colorAccent">#62B656</color>
     <color name="blanca_text_green">#4CDF00</color>
+    <color name="blanca_text_selected">#000000</color>
+    <color name="blanca_text_de_selected">#73000000</color>
 </resources>
