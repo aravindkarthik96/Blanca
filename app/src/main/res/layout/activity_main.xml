@@ -24,7 +24,6 @@
 
   <com.aravindkarthik.blanca.CanvasView
     android:id="@+id/canvasView"
-    android:name="com.google.ar.sceneform.ux.ArFragment"
     android:layout_width="match_parent"
     android:layout_height="300dp"
     app:layout_constraintEnd_toEndOf="parent"

@@ -4,17 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1A1A1A"
+    android:background="#363636"
     app:applyMotionScene="true"
     app:layoutDescription="@xml/blanca_home_scene"
     tools:context=".BlancaHomeActivity">
+
+    <com.aravindkarthik.blanca.CanvasView
+        android:id="@+id/canvasView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineCollapsed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/contentCard"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="16dp"
-        app:cardBackgroundColor="#ffff"
+        app:cardBackgroundColor="#000000"
         app:cardCornerRadius="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +74,7 @@
         android:fontFamily="sans-serif-medium"
         android:onClick="handleEditorTitleClick"
         android:text="Editor"
-        android:textColor="#000000"
+        android:textColor="#B3B3B3"
         android:textSize="24sp"
         android:translationZ="100dp"
         app:layout_constraintStart_toStartOf="@+id/contentCard"
@@ -82,7 +91,7 @@
         android:fontFamily="sans-serif-medium"
         android:onClick="handleLoggerTitleClick"
         android:text="Logger"
-        android:textColor="#72000000"
+        android:textColor="#73B3B3B3"
         android:textSize="24sp"
         android:translationZ="100dp"
         app:layout_constraintStart_toEndOf="@+id/editorTitle"
@@ -120,6 +129,7 @@
                 android:id="@+id/editorContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
                 android:paddingTop="8dp"
                 android:paddingBottom="16dp">
 
@@ -144,7 +154,7 @@
                     android:id="@+id/code_editor_bg"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@drawable/blanca_code_bg"
                     android:fontFamily="monospace"
                     android:gravity="top"
@@ -168,17 +178,17 @@
                     android:gravity="top"
                     android:inputType="textMultiLine"
                     android:maxLines="99"
+                    android:layout_marginStart="8dp"
                     android:paddingTop="4dp"
+                    android:paddingStart="8dp"
                     android:paddingBottom="4dp"
                     android:textColor="#B1B1B1"
                     android:textSize="16sp"
                     android:textStyle="normal"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/code_editor_bg"
                     app:layout_constraintStart_toEndOf="@+id/lineNumbersView"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="Something is written here" />
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </FrameLayout>
@@ -188,15 +198,16 @@
         android:id="@+id/compileFabButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="24dp"
         android:clickable="true"
         android:elevation="10dp"
         android:focusable="true"
         android:src="@drawable/blanca_compile_icon"
+        app:backgroundTint="#B1B1B1"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/scrollingContainer" />
 
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
