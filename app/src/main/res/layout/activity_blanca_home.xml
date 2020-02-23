@@ -112,12 +112,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <FrameLayout
-                android:id="@+id/loggerContainer"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:text="Logger"
-                android:textColor="#000000"
+            <TextView
+                android:id="@+id/loggerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-> beginning of log"
+                android:padding="16dp"
+                android:textColor="#BBBBBB"
+                android:textSize="16sp"
                 android:translationZ="100dp"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/contentCard"
@@ -146,9 +148,9 @@
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     android:translationZ="2dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/code_editor"
+                    app:layout_constraintBottom_toBottomOf="@+id/codeEditor"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/code_editor" />
+                    app:layout_constraintTop_toTopOf="@+id/codeEditor" />
 
                 <View
                     android:id="@+id/code_editor_bg"
@@ -170,17 +172,17 @@
                     tools:text="Something is written here" />
 
                 <EditText
-                    android:id="@+id/code_editor"
+                    android:id="@+id/codeEditor"
                     android:layout_width="328dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
                     android:background="#00000000"
                     android:fontFamily="monospace"
                     android:gravity="top"
                     android:inputType="textMultiLine"
                     android:maxLines="99"
-                    android:layout_marginStart="8dp"
-                    android:paddingTop="4dp"
                     android:paddingStart="8dp"
+                    android:paddingTop="4dp"
                     android:paddingBottom="4dp"
                     android:textColor="#B1B1B1"
                     android:textSize="16sp"
@@ -203,6 +205,7 @@
         android:clickable="true"
         android:elevation="10dp"
         android:focusable="true"
+        android:onClick="runCode"
         android:src="@drawable/blanca_compile_icon"
         app:backgroundTint="#B1B1B1"
         app:fabSize="normal"

@@ -46,7 +46,7 @@
     app:layout_constraintTop_toBottomOf="@+id/canvasView" />
 
   <EditText
-    android:id="@+id/code_editor"
+    android:id="@+id/codeEditor"
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:background="#000000"

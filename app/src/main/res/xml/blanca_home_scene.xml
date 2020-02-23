@@ -13,7 +13,7 @@
     </Transition>
 
     <ConstraintSet android:id="@+id/collapsed_state">
-        <Constraint android:id="@id/loggerContainer">
+        <Constraint android:id="@id/loggerView">
             <PropertySet
                 motion:applyMotionScene="false"
                 motion:visibilityMode="ignore" />
@@ -53,7 +53,7 @@
                 motion:visibilityMode="ignore" />
         </Constraint>
 
-        <Constraint android:id="@id/loggerContainer">
+        <Constraint android:id="@id/loggerView">
             <PropertySet
                 motion:applyMotionScene="false"
                 motion:visibilityMode="ignore" />
