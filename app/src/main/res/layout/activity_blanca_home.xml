@@ -9,7 +9,6 @@
     app:layoutDescription="@xml/blanca_home_scene"
     tools:context=".BlancaHomeActivity">
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/contentCard"
         android:layout_width="match_parent"
@@ -48,17 +47,17 @@
         android:id="@+id/compileFabButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="24dp"
         android:src="@drawable/blanca_compile_icon"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/contentCard" />
 
     <View
         android:id="@+id/contentNotch"
         android:layout_width="32dp"
-        android:layout_height="8dp"
+        android:layout_height="4dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/blanca_card_notch"
         android:translationZ="40dp"
@@ -66,5 +65,32 @@
         app:layout_constraintStart_toStartOf="@+id/contentCard"
         app:layout_constraintTop_toTopOf="@+id/contentCard" />
 
+    <TextView
+        android:id="@+id/editorTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Editor"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:translationZ="100dp"
+        app:layout_constraintStart_toStartOf="@+id/contentCard"
+        app:layout_constraintTop_toBottomOf="@+id/contentNotch" />
+
+    <TextView
+        android:id="@+id/loggerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Logger"
+        android:textColor="#72000000"
+        android:textSize="24sp"
+        android:translationZ="100dp"
+        app:layout_constraintStart_toEndOf="@+id/editorTitle"
+        app:layout_constraintTop_toBottomOf="@+id/contentNotch" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
