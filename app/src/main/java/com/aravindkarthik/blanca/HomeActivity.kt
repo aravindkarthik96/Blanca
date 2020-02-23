@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class HomeActivity : AppCompatActivity() {
 
-    val functions = mutableListOf<Function>()
+    private val functions = mutableListOf<Function>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
