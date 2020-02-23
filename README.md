@@ -38,6 +38,9 @@ Draws a circle of a given radius at a postion (x, y) on the UI
 **drawLine(startX, startY, endX, endY)**
 Draws a line from a start point x and y to and end point x and y
 
+**writeText(text, posX, posY)**
+Draws text at the given x and y position
+
 ###loops
 Repeating actions on blanca is extreamly simple. Here is an example how to draw 3 circles on the UI :
 

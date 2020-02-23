@@ -21,8 +21,6 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity"></activity>
-
         <meta-data
             android:name="com.google.ar.core"
             android:value="required" />
