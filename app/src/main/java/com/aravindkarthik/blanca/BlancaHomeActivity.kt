@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.aravindkarthik.blanca.lang.core.Function
 import com.aravindkarthik.blanca.lang.core.parseParams
 import com.aravindkarthik.blanca.lang.drawing.DrawCircleFunction
+import com.aravindkarthik.blanca.lang.drawing.DrawLineFunction
 import kotlinx.android.synthetic.main.activity_blanca_home.*
 
 class BlancaHomeActivity : AppCompatActivity() {
@@ -18,6 +19,7 @@ class BlancaHomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blanca_home)
         functions.add(DrawCircleFunction(canvasView))
+        functions.add(DrawLineFunction(canvasView))
     }
 
     fun handleEditorTitleClick(view: View) {
@@ -137,7 +139,7 @@ class BlancaHomeActivity : AppCompatActivity() {
     }
 
     private fun drawLine(codeLine: String, index: Int) {
-        canvasView.drawLine(10, 20, 20, 20)
+
     }
 
 }
