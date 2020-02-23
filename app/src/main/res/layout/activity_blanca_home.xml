@@ -43,19 +43,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="1.05" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/compileFabButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="24dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/blanca_compile_icon"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/contentCard" />
-
     <View
         android:id="@+id/contentNotch"
         android:layout_width="32dp"
@@ -76,8 +63,8 @@
         android:clickable="true"
         android:focusable="true"
         android:fontFamily="sans-serif-medium"
-        android:text="Editor"
         android:onClick="handleEditorTitleClick"
+        android:text="Editor"
         android:textColor="#000000"
         android:textSize="24sp"
         android:translationZ="100dp"
@@ -92,8 +79,8 @@
         android:layout_marginTop="8dp"
         android:clickable="true"
         android:focusable="true"
-        android:onClick="handleLoggerTitleClick"
         android:fontFamily="sans-serif-medium"
+        android:onClick="handleLoggerTitleClick"
         android:text="Logger"
         android:textColor="#72000000"
         android:textSize="24sp"
@@ -101,30 +88,115 @@
         app:layout_constraintStart_toEndOf="@+id/editorTitle"
         app:layout_constraintTop_toBottomOf="@+id/contentNotch" />
 
-    <TextView
-        android:id="@+id/editorContainer"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollingContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="Editor"
-        android:textColor="#000000"
-        android:translationZ="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/contentCard"
+        android:layout_marginBottom="24dp"
+        android:translationZ="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/contentCard"
         app:layout_constraintStart_toStartOf="@+id/contentCard"
-        app:layout_constraintTop_toBottomOf="@+id/editorTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/editorTitle">
 
-    <TextView
-        android:id="@+id/loggerContainer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="logger"
-        android:visibility="gone"
-        android:textColor="#000000"
-        android:translationZ="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/contentCard"
-        app:layout_constraintEnd_toEndOf="@+id/contentCard"
-        app:layout_constraintStart_toStartOf="@+id/contentCard"
-        app:layout_constraintTop_toBottomOf="@+id/editorTitle" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/loggerContainer"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="Logger"
+                android:textColor="#000000"
+                android:translationZ="100dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/contentCard"
+                app:layout_constraintEnd_toEndOf="@+id/contentCard"
+                app:layout_constraintStart_toStartOf="@+id/contentCard"
+                app:layout_constraintTop_toBottomOf="@+id/editorTitle" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/editorContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:id="@+id/lineNumbersView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/blanca_line_numbers_bg"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="@string/blanca_line_numbers"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:translationZ="2dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/code_editor"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/code_editor" />
+
+                <View
+                    android:id="@+id/code_editor_bg"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/blanca_code_bg"
+                    android:fontFamily="monospace"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:padding="4dp"
+                    android:textColor="#4D4D4D"
+                    android:textSize="16sp"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="@+id/lineNumbersView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/lineNumbersView"
+                    app:layout_constraintTop_toTopOf="@+id/lineNumbersView"
+                    tools:text="Something is written here" />
+
+                <EditText
+                    android:id="@+id/code_editor"
+                    android:layout_width="328dp"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:fontFamily="monospace"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:maxLines="99"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="#B1B1B1"
+                    android:textSize="16sp"
+                    android:textStyle="normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lineNumbersView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Something is written here" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/compileFabButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:src="@drawable/blanca_compile_icon"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
