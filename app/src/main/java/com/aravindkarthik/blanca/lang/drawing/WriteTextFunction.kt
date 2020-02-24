@@ -12,7 +12,7 @@ class WriteTextFunction(private val canvasView: CanvasView) : Function() {
     override val functionArguments: List<DataTypes>
         get() = listOf(StringType, IntType, IntType)
 
-    override fun invokeFunction(lineNumber: Int, arguments: List<String>) {
+    override suspend fun invokeFunction(lineNumber: Int, arguments: List<String>) {
         canvasView.writeText(
             arguments[0],
             arguments[1].toInt(),

@@ -1,10 +1,10 @@
 package com.aravindkarthik.blanca.lang.core
 
-fun String.parseParams(): List<String>? {
+fun String.parseParams(): List<String> {
     val parametersString = this.substringAfter("(").substringBeforeLast(")")
     return if (parametersString.isNotEmpty()) {
         if (parametersString.contains("(")) {
-            return null
+            return emptyList()
         }
 
         if (parametersString.contains(",")) {
@@ -13,6 +13,6 @@ fun String.parseParams(): List<String>? {
             listOf(parametersString.substring(0, parametersString.length))
         }
     } else {
-        null
+        emptyList()
     }
 }

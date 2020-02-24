@@ -33,7 +33,7 @@ DUMAS comments are one of the easiest comment styles compared to any other progr
 ###drawing
 
 **drawCircle(radius, posX, posY)**
-Draws a circle of a given radius at a postion (x, y) on the UI 
+Draws a circle of a given radius at a position (x, y) on the UI
 
 **drawLine(startX, startY, endX, endY)**
 Draws a line from a start point x and y to and end point x and y
@@ -41,8 +41,11 @@ Draws a line from a start point x and y to and end point x and y
 **writeText(text, posX, posY)**
 Draws text at the given x and y position
 
+**clear()**
+Clears the blanca canvas
+
 ###loops
-Repeating actions on blanca is extreamly simple. Here is an example how to draw 3 circles on the UI :
+Repeating actions on blanca is extremely simple. Here is an example how to draw 3 circles on the UI :
 
     drawCircle(100,100,100)
     drawCircle(100,200,200)

@@ -9,7 +9,7 @@ class DrawLineFunction(private val canvasView: CanvasView) : Function() {
     override val name: String = "drawLine"
     override val functionArguments: List<DataTypes> = listOf(IntType, IntType, IntType, IntType)
 
-    override fun invokeFunction(lineNumber: Int, arguments: List<String>) {
+    override suspend fun invokeFunction(lineNumber: Int, arguments: List<String>) {
         canvasView.drawLine(
             arguments[0].toFloat(),
             arguments[1].toFloat(),

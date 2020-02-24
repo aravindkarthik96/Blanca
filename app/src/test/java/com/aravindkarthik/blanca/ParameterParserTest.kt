@@ -32,7 +32,7 @@ class ParameterParserTest {
         val actual = codeline.parseParams()
 
         //then
-        val expected = null
+        val expected = emptyList<String>()
 
         assertEquals(expected, actual)
     }
@@ -46,7 +46,7 @@ class ParameterParserTest {
         val actual = codeline.parseParams()
 
         //then
-        val expected = null
+        val expected = emptyList<String>()
 
         assertEquals(expected, actual)
     }
@@ -74,7 +74,7 @@ class ParameterParserTest {
         val actual = codeline.parseParams()
 
         //then
-        val expected = null
+        val expected = emptyList<String>()
 
         assertEquals(expected, actual)
     }

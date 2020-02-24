@@ -5,11 +5,11 @@ abstract class Function {
     abstract val functionArguments: List<DataTypes>
 
 
-    abstract fun invokeFunction(lineNumber: Int, arguments: List<String>)
+    abstract suspend fun invokeFunction(lineNumber: Int, arguments: List<String>)
 
-    fun validateArguments(arguments: List<String>?): Boolean {
-        if (arguments == null) {
-            return false
+    fun validateArguments(arguments: List<String>): Boolean {
+        if (functionArguments.isNullOrEmpty()) {
+            return arguments.isEmpty()
         }
 
         if (functionArguments.size != arguments.size) {
