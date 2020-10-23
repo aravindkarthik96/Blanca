@@ -61,7 +61,7 @@ class BlancaHomeActivity : AppCompatActivity() {
                 else -> {
                     GlobalScope.launch(Dispatchers.Main) {
                         val beginTime = System.currentTimeMillis()
-                        printSimpleLog("Execution started")
+                        printLog("Execution started")
 
                         functions.forEach {
                             if (codeLine.startsWith(it.name)
@@ -76,7 +76,7 @@ class BlancaHomeActivity : AppCompatActivity() {
                                         )
                                     }
                                     val executionTime = System.currentTimeMillis() - beginTime
-                                    printSimpleLog("Executed ${it.name} $executionTime ms")
+                                    printLog("Executed ${it.name} $executionTime ms")
                                 } else {
                                     printError(index, codeLine, "INVALID ARGUMENTS")
                                 }
@@ -105,7 +105,7 @@ class BlancaHomeActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun printSimpleLog(message: String) {
+    private fun printLog(message: String) {
         Log.d("BLANCA INTERPRETER", message)
         printMessage(message)
     }

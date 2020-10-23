@@ -4,9 +4,10 @@
     <Transition
         motion:constraintSetEnd="@id/expanded_state"
         motion:constraintSetStart="@id/collapsed_state"
-        motion:duration="1000"
-        motion:motionInterpolator="easeInOut">
+        motion:duration="500"
+        motion:motionInterpolator="bounce">
         <OnSwipe
+            motion:dragScale="2"
             motion:dragDirection="dragUp"
             motion:touchAnchorId="@id/contentCard"
             motion:touchAnchorSide="top" />
