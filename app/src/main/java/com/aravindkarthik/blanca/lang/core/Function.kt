@@ -46,4 +46,8 @@ abstract class Function {
     fun getIntArgument(argument: String): Int {
         return argument.toInt()
     }
+
+    fun getSuggestionText(): String {
+        return "$name()\n"
+    }
 }

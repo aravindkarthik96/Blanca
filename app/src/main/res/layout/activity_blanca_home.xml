@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6" />
+        app:layout_constraintGuide_percent="0.5" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -101,9 +101,8 @@
         android:id="@+id/scrollingContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="24dp"
         android:translationZ="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/compileFabButton"
         app:layout_constraintEnd_toEndOf="@+id/contentCard"
         app:layout_constraintStart_toStartOf="@+id/contentCard"
         app:layout_constraintTop_toBottomOf="@+id/editorTitle">
@@ -116,8 +115,8 @@
                 android:id="@+id/loggerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="-> beginning of log"
                 android:padding="16dp"
+                android:text="-> beginning of log"
                 android:textColor="#BBBBBB"
                 android:textSize="16sp"
                 android:translationZ="100dp"
@@ -182,6 +181,7 @@
                     android:inputType="textMultiLine"
                     android:maxLines="99"
                     android:paddingStart="8dp"
+                    android:paddingEnd="0dp"
                     android:paddingTop="4dp"
                     android:paddingBottom="4dp"
                     android:textColor="#B1B1B1"
@@ -190,11 +190,28 @@
                     app:layout_constraintEnd_toEndOf="@+id/code_editor_bg"
                     app:layout_constraintStart_toEndOf="@+id/lineNumbersView"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Something is written here" />
+                    tools:text="Something is written here"
+                    android:autofillHints="// write your code here" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </FrameLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/funcSuggestions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/compileFabButton"
+        app:layout_constraintBottom_toBottomOf="@+id/compileFabButton"
+        app:layout_constraintStart_toStartOf="@+id/scrollingContainer"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:elevation="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:orientation="horizontal"
+        tools:listitem="@layout/suggestion_pill"
+        app:layout_constraintEnd_toStartOf="@+id/compileFabButton"
+        />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/compileFabButton"
@@ -207,7 +224,7 @@
         android:focusable="true"
         android:onClick="runCode"
         android:src="@drawable/blanca_compile_icon"
-        app:backgroundTint="#B1B1B1"
+        app:backgroundTint="#46B102"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/scrollingContainer" />
