@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.aravindkarthik.blanca">
 
-    <uses-permission android:name="android.permission.CAMERA" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/blanca_launcher_icon"
@@ -11,19 +9,18 @@
         android:roundIcon="@mipmap/blanca_launcher_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".BlancaHomeActivity"
-            android:windowSoftInputMode="adjustResize">
+        <activity
+            android:name=".ui.BlancaSplashActivity"
+            android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-
-                <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <meta-data
-            android:name="com.google.ar.core"
-            android:value="required" />
+        <activity
+            android:name=".ui.BlancaHomeActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
     </application>
-
 </manifest>

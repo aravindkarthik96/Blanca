@@ -7,10 +7,10 @@
     android:background="#363636"
     app:applyMotionScene="true"
     app:layoutDescription="@xml/blanca_home_scene"
-    tools:context=".BlancaHomeActivity"
+    tools:context=".ui.BlancaHomeActivity"
     android:animateLayoutChanges="true">
 
-    <com.aravindkarthik.blanca.CanvasView
+    <com.aravindkarthik.blanca.ui.canvas.CanvasView
         android:id="@+id/canvasView"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -211,7 +211,7 @@
         app:layout_constraintEnd_toEndOf="@+id/contentCard"
         app:layout_constraintStart_toStartOf="@+id/contentCard">
 
-        <com.aravindkarthik.blanca.suggestionsView.SuggestionsView
+        <com.aravindkarthik.blanca.ui.suggestionsView.SuggestionsView
             android:id="@+id/funcSuggestions"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

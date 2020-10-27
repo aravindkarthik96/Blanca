@@ -1,10 +1,13 @@
-package com.aravindkarthik.blanca
+package com.aravindkarthik.blanca.ui
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.aravindkarthik.blanca.R
 import com.aravindkarthik.blanca.lang.core.Function
 import com.aravindkarthik.blanca.lang.core.parseParams
 import com.aravindkarthik.blanca.lang.drawing.*
@@ -146,4 +149,10 @@ class BlancaHomeActivity : AppCompatActivity() {
         loggerView.text = "$currentText \n-> $logText"
     }
 
+    companion object {
+        fun launch(context : Context) {
+            val intent = Intent(context, BlancaHomeActivity::class.java)
+            context.startActivity(intent)
+        }
+    }
 }

@@ -1,4 +1,4 @@
-package com.aravindkarthik.blanca.suggestionsView
+package com.aravindkarthik.blanca.ui.suggestionsView
 
 import android.content.Context
 import android.util.AttributeSet

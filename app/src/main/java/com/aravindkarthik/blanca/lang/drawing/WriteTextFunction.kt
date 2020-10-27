@@ -1,6 +1,6 @@
 package com.aravindkarthik.blanca.lang.drawing
 
-import com.aravindkarthik.blanca.CanvasView
+import com.aravindkarthik.blanca.ui.canvas.CanvasView
 import com.aravindkarthik.blanca.lang.core.DataTypes
 import com.aravindkarthik.blanca.lang.core.Function
 import com.aravindkarthik.blanca.lang.core.IntType

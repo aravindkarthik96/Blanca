@@ -1,4 +1,4 @@
-package com.aravindkarthik.blanca
+package com.aravindkarthik.blanca.ui.canvas
 
 import android.content.Context
 import android.graphics.Canvas
@@ -9,6 +9,7 @@ import android.util.AttributeSet
 import android.util.DisplayMetrics
 import android.view.View
 import androidx.core.content.ContextCompat
+import com.aravindkarthik.blanca.R
 
 
 class CanvasView @JvmOverloads constructor(
