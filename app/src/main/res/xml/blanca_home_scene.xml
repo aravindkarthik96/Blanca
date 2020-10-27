@@ -27,6 +27,25 @@
                 motion:layout_constraintStart_toStartOf="parent"
                 motion:layout_constraintTop_toBottomOf="@+id/guidelineCollapsed" />
         </Constraint>
+
+        <Constraint android:id="@+id/compileFabButton">
+            <Layout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="24dp"
+                android:clickable="true"
+                android:elevation="10dp"
+                android:focusable="true"
+                android:onClick="runCode"
+                android:foregroundGravity="center"
+                android:src="@drawable/blanca_compile_icon"
+                motion:backgroundTint="#46B102"
+                motion:fabSize="mini"
+                motion:layout_constraintBottom_toBottomOf="parent"
+                motion:layout_constraintEnd_toEndOf="@+id/scrollingContainer"
+                />
+        </Constraint>
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/expanded_state">
@@ -41,6 +60,25 @@
                 motion:layout_constraintEnd_toEndOf="parent"
                 motion:layout_constraintStart_toStartOf="parent"
                 motion:layout_constraintTop_toTopOf="@+id/guidelineExpanded" />
+        </Constraint>
+
+        <Constraint android:id="@+id/compileFabButton">
+            <Layout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="24dp"
+                android:clickable="true"
+                android:elevation="10dp"
+                android:focusable="true"
+                android:onClick="runCode"
+                android:foregroundGravity="center"
+                android:src="@drawable/blanca_compile_icon"
+                motion:backgroundTint="#46B102"
+                motion:fabSize="normal"
+                motion:layout_constraintBottom_toBottomOf="parent"
+                motion:layout_constraintEnd_toEndOf="@+id/scrollingContainer"
+                />
         </Constraint>
     </ConstraintSet>
 
