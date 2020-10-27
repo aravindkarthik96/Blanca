@@ -2,21 +2,14 @@ package com.aravindkarthik.blanca
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.addTextChangedListener
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
 import com.aravindkarthik.blanca.lang.core.Function
 import com.aravindkarthik.blanca.lang.core.parseParams
 import com.aravindkarthik.blanca.lang.drawing.*
-import com.aravindkarthik.blanca.suggestionsView.SuggestionsViewAdapter
 import kotlinx.android.synthetic.main.activity_blanca_home.*
 import kotlinx.coroutines.*
-import java.util.*
 
 class BlancaHomeActivity : AppCompatActivity() {
 
@@ -60,32 +53,7 @@ class BlancaHomeActivity : AppCompatActivity() {
 //    }
 
     private fun setupSuggestions() {
-        val suggestionsViewAdapter = SuggestionsViewAdapter(
-            suggestionClickListener = { suggestionText : String ->
-                val userCursorPosition = codeEditor.selectionEnd
-                codeEditor.text = codeEditor.text.insert(userCursorPosition,suggestionText)
-
-                if (
-                    userCursorPosition > 0 &&
-                    userCursorPosition < codeEditor.text.length
-                ) {
-                    codeEditor.setSelection(userCursorPosition + suggestionText.length)
-                }
-            }
-        )
-        funcSuggestions.layoutManager = LinearLayoutManager(this, HORIZONTAL, false)
-        funcSuggestions.adapter = suggestionsViewAdapter
-
-        val defaultList = mutableListOf("()",",")
-        val functionsList = functions.map {
-            it.getSuggestionText()
-        }.sortedBy {
-            it.toLowerCase(Locale.ROOT)
-        }
-
-        defaultList.addAll(functionsList)
-
-        suggestionsViewAdapter.setData(defaultList)
+        funcSuggestions.init(codeEditor, functions)
     }
 
     fun handleEditorTitleClick(view: View) {

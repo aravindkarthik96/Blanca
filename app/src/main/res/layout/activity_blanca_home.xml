@@ -211,7 +211,7 @@
         app:layout_constraintEnd_toEndOf="@+id/contentCard"
         app:layout_constraintStart_toStartOf="@+id/contentCard">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <com.aravindkarthik.blanca.suggestionsView.SuggestionsView
             android:id="@+id/funcSuggestions"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
