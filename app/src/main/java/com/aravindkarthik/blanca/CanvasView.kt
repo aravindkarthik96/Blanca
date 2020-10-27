@@ -2,6 +2,7 @@ package com.aravindkarthik.blanca
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
 import android.util.AttributeSet
@@ -17,7 +18,7 @@ class CanvasView @JvmOverloads constructor(
 ) :
     View(context, attributeSet, defStyle) {
 
-    private val paint = Paint()
+    private var paint = Paint()
     private val linePaint = Paint()
     private val textPaint = Paint()
 
@@ -27,12 +28,18 @@ class CanvasView @JvmOverloads constructor(
     private var text: MutableList<Text> = mutableListOf()
 
     init {
-        paint.color = ContextCompat.getColor(context, R.color.blanca_text_green)
+        setPaintColors(
+            ContextCompat.getColor(context, R.color.blanca_text_green)
+        )
+    }
 
-        linePaint.color = ContextCompat.getColor(context, R.color.blanca_text_green)
+    private fun setPaintColors(color: Int) {
+        paint.color = color
+
+        linePaint.color = color
         linePaint.strokeWidth = convertDpToPixel(4f, context)
 
-        textPaint.color = ContextCompat.getColor(context, R.color.blanca_text_green)
+        textPaint.color = color
         textPaint.textSize = convertDpToPixel(14f, context)
     }
 
@@ -71,6 +78,10 @@ class CanvasView @JvmOverloads constructor(
     fun writeText(string: String, x: Int, y: Int) {
         text.add(Text(string, x.toFloat(), y.toFloat()))
         invalidate()
+    }
+
+    fun setColor(colorString: String) {
+        setPaintColors(Color.parseColor(ColorUtils.getColorHex(colorString)))
     }
 
 }

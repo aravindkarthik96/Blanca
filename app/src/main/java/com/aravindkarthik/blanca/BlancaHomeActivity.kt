@@ -15,10 +15,7 @@ import com.aravindkarthik.blanca.lang.core.parseParams
 import com.aravindkarthik.blanca.lang.drawing.*
 import com.aravindkarthik.blanca.suggestionsView.SuggestionsViewAdapter
 import kotlinx.android.synthetic.main.activity_blanca_home.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 import java.util.*
 
 class BlancaHomeActivity : AppCompatActivity() {
@@ -34,7 +31,7 @@ class BlancaHomeActivity : AppCompatActivity() {
         functions.add(DrawLineFunction(canvasView))
         functions.add(WriteTextFunction(canvasView))
         functions.add(DrawCircleFunction(canvasView))
-
+        functions.add(SetColorFunction(canvasView))
         setupSuggestions()
     }
 
@@ -121,7 +118,7 @@ class BlancaHomeActivity : AppCompatActivity() {
                 codeLine.startsWith("//") -> handleComments()
                 codeLine.startsWith("$") -> handleVariables()
                 else -> {
-                    GlobalScope.launch(Dispatchers.Main) {
+                    GlobalScope.launch(Dispatchers.IO) {
                         val beginTime = System.currentTimeMillis()
                         printLog("Execution started")
 
@@ -131,7 +128,7 @@ class BlancaHomeActivity : AppCompatActivity() {
                             ) {
                                 val arguments = codeLine.parseParams()
                                 if (it.validateArguments(arguments)) {
-                                    runBlocking {
+                                    runBlocking(Dispatchers.IO) {
                                         it.invokeFunction(
                                             index,
                                             arguments
@@ -160,16 +157,20 @@ class BlancaHomeActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun printError(index: Int, codeLine: String, message: String? = "UNKNOWN SYNTAX") {
-        val logText = "$message AT $index : $codeLine"
-        Log.d("BLANCA INTERPRETER", logText)
-        printMessage(logText)
+    private suspend fun printError(index: Int, codeLine: String, message: String? = "UNKNOWN SYNTAX") {
+        withContext(Dispatchers.Main) {
+            val logText = "$message AT $index : $codeLine"
+            Log.d("BLANCA INTERPRETER", logText)
+            printMessage(logText)
+        }
     }
 
     @SuppressLint("SetTextI18n")
-    private fun printLog(message: String) {
-        Log.d("BLANCA INTERPRETER", message)
-        printMessage(message)
+    private suspend fun printLog(message: String) {
+        withContext(Dispatchers.Main) {
+            Log.d("BLANCA INTERPRETER", message)
+            printMessage(message)
+        }
     }
 
     private fun printMessage(logText: String) {

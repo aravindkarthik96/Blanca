@@ -3,6 +3,8 @@ package com.aravindkarthik.blanca.lang.drawing
 import com.aravindkarthik.blanca.CanvasView
 import com.aravindkarthik.blanca.lang.core.DataTypes
 import com.aravindkarthik.blanca.lang.core.Function
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class ClearFunction(private val canvasView: CanvasView) : Function() {
 
@@ -12,6 +14,8 @@ class ClearFunction(private val canvasView: CanvasView) : Function() {
         get() = emptyList()
 
     override suspend fun invokeFunction(lineNumber: Int, arguments: List<String>) {
-        canvasView.clear()
+        withContext(Dispatchers.Main) {
+            canvasView.clear()
+        }
     }
 }
