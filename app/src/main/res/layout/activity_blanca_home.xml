@@ -10,6 +10,17 @@
     tools:context=".ui.BlancaHomeActivity"
     android:animateLayoutChanges="true">
 
+    <ImageView
+        android:id="@+id/helpButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/blanca_help_icon"
+        app:layout_constraintBottom_toTopOf="@+id/canvasView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/help" />
+
     <com.aravindkarthik.blanca.ui.canvas.CanvasView
         android:id="@+id/canvasView"
         android:layout_width="0dp"
@@ -17,7 +28,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guidelineCollapsed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/guidelineExpanded" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/contentCard"
@@ -175,9 +186,8 @@
 
                 <EditText
                     android:id="@+id/codeEditor"
-                    android:layout_width="328dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
                     android:autofillHints="// write your code here"
                     android:background="#00000000"
                     android:fontFamily="monospace"

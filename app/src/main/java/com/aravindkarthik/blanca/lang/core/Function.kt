@@ -1,9 +1,11 @@
 package com.aravindkarthik.blanca.lang.core
 
+import com.aravindkarthik.blanca.ui.canvas.CanvasView
+
 abstract class Function {
     abstract val name: String
     abstract val functionArguments: List<DataTypes>
-
+    abstract val documentation: FunctionDocumentation
 
     abstract suspend fun invokeFunction(lineNumber: Int, arguments: List<String>)
 
@@ -51,3 +53,10 @@ abstract class Function {
         return "$name()\n"
     }
 }
+
+class FunctionDocumentation(
+    val title: String,
+    val description: String,
+    val exampleCode: String,
+    val runExample: (canvas : CanvasView, exampleCode : String) -> Unit
+)

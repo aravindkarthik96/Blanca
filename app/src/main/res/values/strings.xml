@@ -4,4 +4,6 @@
     <string name="beginning_of_log"><![CDATA[-> beginning of log]]></string>
     <string name="logger">Logger</string>
     <string name="editor">Editor</string>
+    <string name="help">Help</string>
+    <string name="example">Example</string>
 </resources>

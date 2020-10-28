@@ -1,10 +1,10 @@
 package com.aravindkarthik.blanca.lang.drawing
 
-import com.aravindkarthik.blanca.ui.canvas.CanvasView
 import com.aravindkarthik.blanca.lang.core.DataTypes
 import com.aravindkarthik.blanca.lang.core.Function
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import com.aravindkarthik.blanca.lang.core.FunctionDocumentation
+import com.aravindkarthik.blanca.ui.canvas.CanvasView
+import kotlinx.coroutines.*
 
 class ClearFunction(private val canvasView: CanvasView) : Function() {
 
@@ -18,4 +18,19 @@ class ClearFunction(private val canvasView: CanvasView) : Function() {
             canvasView.clear()
         }
     }
+
+    override val documentation: FunctionDocumentation
+        get() = FunctionDocumentation(
+            title = "clear()",
+            description = "clears everything drawn on the canvas",
+            exampleCode = "drawCircle(200,200,200)\ndelay(1000)\nclear()",
+            runExample = { canvas, _ ->
+                GlobalScope.launch(Dispatchers.IO) {
+                    withContext(Dispatchers.Main) { canvas.drawCircle(200, 200, 200) }
+                    delay(1000)
+                    withContext(Dispatchers.Main) { canvas.clear() }
+
+                }
+            }
+        )
 }

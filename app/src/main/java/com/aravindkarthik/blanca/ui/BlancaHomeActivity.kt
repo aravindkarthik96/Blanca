@@ -8,6 +8,8 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.aravindkarthik.blanca.R
+import com.aravindkarthik.blanca.help.HelpActivity
+import com.aravindkarthik.blanca.lang.FunctionsProvider
 import com.aravindkarthik.blanca.lang.core.Function
 import com.aravindkarthik.blanca.lang.core.parseParams
 import com.aravindkarthik.blanca.lang.drawing.*
@@ -16,44 +18,22 @@ import kotlinx.coroutines.*
 
 class BlancaHomeActivity : AppCompatActivity() {
 
-    private val functions = mutableListOf<Function>()
+    private lateinit var functions: List<Function>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blanca_home)
+        functions = FunctionsProvider(canvasView).getFunctions()
 
-        functions.add(DelayFunction())
-        functions.add(ClearFunction(canvasView))
-        functions.add(DrawLineFunction(canvasView))
-        functions.add(WriteTextFunction(canvasView))
-        functions.add(DrawCircleFunction(canvasView))
-        functions.add(SetColorFunction(canvasView))
         setupSuggestions()
+        setupHelp()
     }
 
-//    private fun setupLineNumbers() {
-//        var previousLineCount = 0
-//        codeEditor.addTextChangedListener(object : TextWatcher {
-//            override fun afterTextChanged(string: Editable) {
-//                lineNumbersView
-//                if (string.lines().size != previousLineCount) {
-//                    var newLineString = ""
-//                    string.lines().forEachIndexed { index, s ->
-//                        newLineString += "\n$index"
-//                    }
-//                    codeEditor.setText(newLineString)
-//                }
-//            }
-//
-//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-//
-//            }
-//
-//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-//
-//            }
-//        })
-//    }
+    private fun setupHelp() {
+        helpButton.setOnClickListener {
+            HelpActivity.launch(this)
+        }
+    }
 
     private fun setupSuggestions() {
         funcSuggestions.init(codeEditor, functions)

@@ -15,7 +15,7 @@ class SuggestionsView @JvmOverloads constructor(
 ) : RecyclerView(context, attributeSet, defStyle) {
 
 
-    fun init(codeEditor: EditText, functions: MutableList<Function>) {
+    fun init(codeEditor: EditText, functions: List<Function>) {
         val suggestionsViewAdapter = SuggestionsViewAdapter(
             suggestionClickListener = { suggestionText : String ->
                 val userCursorPosition = codeEditor.selectionEnd
