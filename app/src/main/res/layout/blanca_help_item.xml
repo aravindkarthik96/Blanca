@@ -56,9 +56,9 @@
         android:id="@+id/exampleCode"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/compileFabButton"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/copyFabButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exampleTitle"
         tools:text="drawLine(10,20,30,30)\nsetColor(red)\n\n\n\n\n\n\" />
@@ -77,6 +77,23 @@
         app:fabSize="mini"
         app:layout_constraintBottom_toBottomOf="@+id/exampleCode"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/exampleCode" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/copyFabButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:foregroundGravity="center"
+        android:onClick="runCode"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/blanca_copy_icon"
+        app:backgroundTint="#0091EA"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="@+id/exampleCode"
+        app:layout_constraintEnd_toStartOf="@id/compileFabButton"
         app:layout_constraintTop_toTopOf="@+id/exampleCode" />
 
 

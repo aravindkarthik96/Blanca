@@ -13,7 +13,8 @@
         android:padding="16dp"
         android:scaleType="fitXY"
         android:src="@drawable/blanca_close_icon"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/title"
@@ -22,9 +23,9 @@
         android:layout_margin="16dp"
         android:text="@string/help"
         android:textSize="32sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/closeButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="@+id/closeButton" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/codeList"
@@ -33,7 +34,7 @@
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@+id/closeButton"
         tools:listitem="@layout/blanca_help_item" />
 
 </merge>

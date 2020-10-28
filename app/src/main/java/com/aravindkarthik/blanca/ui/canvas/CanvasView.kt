@@ -83,6 +83,7 @@ class CanvasView @JvmOverloads constructor(
 
     fun setColor(colorString: String) {
         setPaintColors(Color.parseColor(ColorUtils.getColorHex(colorString)))
+        invalidate()
     }
 
 }

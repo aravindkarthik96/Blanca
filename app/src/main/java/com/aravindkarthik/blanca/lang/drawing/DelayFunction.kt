@@ -14,7 +14,7 @@ class DelayFunction : Function() {
         get() = listOf(IntType)
 
     override suspend fun invokeFunction(lineNumber: Int, arguments: List<String>) {
-            delay(arguments[0].toLong())
+        delay(arguments[0].toLong())
     }
 
     override val documentation: FunctionDocumentation
