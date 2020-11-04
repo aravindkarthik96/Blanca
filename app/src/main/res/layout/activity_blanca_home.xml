@@ -4,22 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:background="#363636"
     app:applyMotionScene="true"
     app:layoutDescription="@xml/blanca_home_scene"
-    tools:context=".ui.BlancaHomeActivity"
-    android:animateLayoutChanges="true">
+    tools:context=".ui.BlancaHomeActivity">
 
-    <ImageView
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/helpButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:clickable="true"
+        android:contentDescription="@string/menu"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:foregroundGravity="center"
         android:src="@drawable/blanca_help_icon"
+        app:backgroundTint="#000000"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/canvasView"
+        app:layout_constraintEnd_toStartOf="@+id/settingsButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/settingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:clickable="true"
+        android:contentDescription="@string/menu"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:foregroundGravity="center"
+        android:src="@drawable/blanca_settings_icon"
+        app:backgroundTint="#000000"
+        app:fabSize="mini"
         app:layout_constraintBottom_toTopOf="@+id/canvasView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/help" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.aravindkarthik.blanca.ui.canvas.CanvasView
         android:id="@+id/canvasView"
@@ -48,7 +71,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5" />
-
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineExpanded"
@@ -114,8 +136,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        android:translationZ="2dp"
         android:scrollbars="vertical"
+        android:translationZ="2dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_container"
         app:layout_constraintEnd_toEndOf="@+id/contentCard"
         app:layout_constraintStart_toStartOf="@+id/contentCard"
@@ -207,7 +229,6 @@
                     tools:text="Something is written here"
                     tools:ignore="LabelFor" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
         </FrameLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -242,6 +263,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:clickable="true"
+            android:contentDescription="@string/compile"
             android:elevation="10dp"
             android:focusable="true"
             android:foregroundGravity="center"

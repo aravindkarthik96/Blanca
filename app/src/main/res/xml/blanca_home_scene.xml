@@ -2,10 +2,11 @@
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:motion="http://schemas.android.com/apk/res-auto">
     <Transition
+        android:id="@+id/code_editor_transition"
         motion:constraintSetEnd="@id/expanded_state"
         motion:constraintSetStart="@id/collapsed_state"
         motion:duration="500"
-        motion:motionInterpolator="bounce">
+        motion:motionInterpolator="easeInOut">
         <OnSwipe
             motion:dragScale="2"
             motion:dragDirection="dragUp"

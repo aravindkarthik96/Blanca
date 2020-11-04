@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/blanca_launcher_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".settings.SettingsActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            />
         <activity
             android:name=".help.HelpActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

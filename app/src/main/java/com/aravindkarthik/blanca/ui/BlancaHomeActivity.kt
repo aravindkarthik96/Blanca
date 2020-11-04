@@ -13,6 +13,7 @@ import com.aravindkarthik.blanca.lang.FunctionsProvider
 import com.aravindkarthik.blanca.lang.core.Function
 import com.aravindkarthik.blanca.lang.core.parseParams
 import com.aravindkarthik.blanca.lang.drawing.*
+import com.aravindkarthik.blanca.settings.SettingsActivity
 import kotlinx.android.synthetic.main.activity_blanca_home.*
 import kotlinx.coroutines.*
 
@@ -32,6 +33,10 @@ class BlancaHomeActivity : AppCompatActivity() {
     private fun setupHelp() {
         helpButton.setOnClickListener {
             HelpActivity.launch(this)
+        }
+
+        settingsButton.setOnClickListener {
+            SettingsActivity.launch(this)
         }
     }
 
