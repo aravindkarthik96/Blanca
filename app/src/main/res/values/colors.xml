@@ -6,4 +6,17 @@
     <color name="blanca_text_green">#4CDF00</color>
     <color name="blanca_text_selected">#B3B3B3</color>
     <color name="blanca_text_de_selected">#73B3B3B3</color>
+    <color name="blanca_menu_button_color">#000000</color>
+    <color name="blanca_card_background_color">#000000</color>
+    <color name="blanca_tabs_selected_color">#B3B3B3</color>
+    <color name="blanca_tabs_deselected_color">#73B3B3B3</color>
+    <color name="blanca_logger_text_color">#BBBBBB</color>
+    <color name="blanca_line_number_text">#FFFFFF</color>
+    <color name="blanca_code_editor_background_color">#4D4D4D</color>
+    <color name="blanca_code_editor_text">#B1B1B1</color>
+    <color name="blanca_code_editor_edit_text_background">#00000000</color>
+    <color name="blanca_compile_button">#205300</color>
+    <color name="blanca_splash_background">#FF9800</color>
+    <color name="blanca_copy_button">#0091EA</color>
+    <color name="blanca_code_suggestions_background">#854C00</color>
 </resources>
