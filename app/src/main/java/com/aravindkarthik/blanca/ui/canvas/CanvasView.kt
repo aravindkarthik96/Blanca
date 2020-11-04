@@ -30,7 +30,7 @@ class CanvasView @JvmOverloads constructor(
 
     init {
         setPaintColors(
-            ContextCompat.getColor(context, R.color.blanca_text_green)
+            ContextCompat.getColor(context, R.color.blanca_canvas_green)
         )
     }
 

@@ -48,16 +48,16 @@ class BlancaHomeActivity : AppCompatActivity() {
         loggerView.visibility = View.GONE
         editorContainer.visibility = View.VISIBLE
         funcSuggestions.visibility = View.VISIBLE
-        loggerTitle.setTextColor(getColor(R.color.blanca_text_de_selected))
-        editorTitle.setTextColor(getColor(R.color.blanca_text_selected))
+        loggerTitle.setTextColor(getColor(R.color.blanca_tabs_deselected_color))
+        editorTitle.setTextColor(getColor(R.color.blanca_tabs_selected_color))
     }
 
     fun handleLoggerTitleClick(view: View) {
         loggerView.visibility = View.VISIBLE
         editorContainer.visibility = View.GONE
         funcSuggestions.visibility = View.INVISIBLE
-        loggerTitle.setTextColor(getColor(R.color.blanca_text_selected))
-        editorTitle.setTextColor(getColor(R.color.blanca_text_de_selected))
+        loggerTitle.setTextColor(getColor(R.color.blanca_tabs_selected_color))
+        editorTitle.setTextColor(getColor(R.color.blanca_tabs_deselected_color))
     }
 
     fun runCode(view: View) {
