@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.aravindkarthik.blanca.R
-import kotlinx.android.synthetic.main.suggestion_pill.view.*
+import com.aravindkarthik.blanca.databinding.SuggestionPillBinding
 
 class SuggestionsViewAdapter(
     private val suggestionClickListener: (String) -> Unit
@@ -32,8 +32,9 @@ class SuggestionsViewAdapter(
 
 class SuggestionsViewHolder(itemView : ViewGroup) : RecyclerView.ViewHolder(itemView) {
     fun bind(suggestionText: String, suggestionClickListener: (String) -> Unit) {
-        itemView.suggestionText.text = suggestionText.trim()
-        itemView.setOnClickListener {
+        val binding = SuggestionPillBinding.bind(itemView)
+        binding.suggestionText.text = suggestionText.trim()
+        binding.root.setOnClickListener {
             suggestionClickListener.invoke(suggestionText)
         }
     }

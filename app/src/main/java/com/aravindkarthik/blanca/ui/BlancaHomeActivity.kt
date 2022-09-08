@@ -8,56 +8,57 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.aravindkarthik.blanca.R
+import com.aravindkarthik.blanca.databinding.ActivityBlancaHomeBinding
 import com.aravindkarthik.blanca.help.HelpActivity
 import com.aravindkarthik.blanca.lang.FunctionsProvider
 import com.aravindkarthik.blanca.lang.core.Function
 import com.aravindkarthik.blanca.lang.core.parseParams
-import com.aravindkarthik.blanca.lang.drawing.*
 import com.aravindkarthik.blanca.settings.SettingsActivity
-import kotlinx.android.synthetic.main.activity_blanca_home.*
 import kotlinx.coroutines.*
 
 class BlancaHomeActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityBlancaHomeBinding
     private lateinit var functions: List<Function>
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        binding = ActivityBlancaHomeBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_blanca_home)
-        functions = FunctionsProvider(canvasView).getFunctions()
+        setContentView(binding.root)
+        functions = FunctionsProvider(binding.canvasView).getFunctions()
 
         setupSuggestions()
         setupHelp()
     }
 
     private fun setupHelp() {
-        helpButton.setOnClickListener {
+        binding.helpButton.setOnClickListener {
             HelpActivity.launch(this)
         }
 
-        settingsButton.setOnClickListener {
+        binding.settingsButton.setOnClickListener {
             SettingsActivity.launch(this)
         }
     }
 
     private fun setupSuggestions() {
-        funcSuggestions.init(codeEditor, functions)
+        binding.funcSuggestions.init(binding.codeEditor, functions)
     }
 
     fun handleEditorTitleClick(view: View) {
-        loggerView.visibility = View.GONE
-        editorContainer.visibility = View.VISIBLE
-        funcSuggestions.visibility = View.VISIBLE
-        loggerTitle.setTextColor(getColor(R.color.blanca_tabs_deselected_color))
-        editorTitle.setTextColor(getColor(R.color.blanca_tabs_selected_color))
+        binding.loggerView.visibility = View.GONE
+        binding.editorContainer.visibility = View.VISIBLE
+        binding.funcSuggestions.visibility = View.VISIBLE
+        binding.loggerTitle.setTextColor(getColor(R.color.blanca_tabs_deselected_color))
+        binding.editorTitle.setTextColor(getColor(R.color.blanca_tabs_selected_color))
     }
 
     fun handleLoggerTitleClick(view: View) {
-        loggerView.visibility = View.VISIBLE
-        editorContainer.visibility = View.GONE
-        funcSuggestions.visibility = View.INVISIBLE
-        loggerTitle.setTextColor(getColor(R.color.blanca_tabs_selected_color))
-        editorTitle.setTextColor(getColor(R.color.blanca_tabs_deselected_color))
+        binding.loggerView.visibility = View.VISIBLE
+        binding.editorContainer.visibility = View.GONE
+        binding.funcSuggestions.visibility = View.INVISIBLE
+        binding.loggerTitle.setTextColor(getColor(R.color.blanca_tabs_selected_color))
+        binding.editorTitle.setTextColor(getColor(R.color.blanca_tabs_deselected_color))
     }
 
     fun runCode(view: View) {
@@ -67,7 +68,7 @@ class BlancaHomeActivity : AppCompatActivity() {
 
 
     private fun interpretCode() {
-        val codeEditable = codeEditor.text
+        val codeEditable = binding.codeEditor.text
 
         codeEditable.lines().forEachIndexed { index, codeLine ->
             when {
@@ -130,8 +131,8 @@ class BlancaHomeActivity : AppCompatActivity() {
     }
 
     private fun printMessage(logText: String) {
-        val currentText = loggerView.text.toString()
-        loggerView.text = "$currentText \n-> $logText"
+        val currentText = binding.loggerView.text.toString()
+        binding.loggerView.text = "$currentText \n-> $logText"
     }
 
     companion object {
