@@ -4,13 +4,17 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.aravindkarthik.blanca.R
-import com.aravindkarthik.blanca.help.HelpActivity
+import com.aravindkarthik.blanca.databinding.ActivitySettingsBinding
+import com.aravindkarthik.blanca.lang.FunctionsProvider
+import com.aravindkarthik.blanca.ui.canvas.CanvasView
 
 class SettingsActivity : AppCompatActivity() {
+    lateinit var binding : ActivitySettingsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_settings)
+        binding = ActivitySettingsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.settingsView.setup(FunctionsProvider(CanvasView(this)).getFunctions())
     }
 
     companion object {

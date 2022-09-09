@@ -18,4 +18,5 @@
     <color name="blanca_copy_button">#2B7EB6</color>
     <color name="blanca_code_suggestions_background">#AC4621</color>
     <color name="blanca_line_number_background">#252628</color>
+    <color name="blanca_light_background">#ffffff</color>
 </resources>

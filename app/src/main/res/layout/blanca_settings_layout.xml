@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="@+id/closeButton" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/themesTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -38,16 +38,101 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/codeList"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/darkTheme"
         android:layout_width="0dp"
-        android:layout_margin="16dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toStartOf="@+id/lightTheme"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        tools:listitem="@layout/blanca_theme_item"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:cardCornerRadius="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/themesTitle" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/lightTheme"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        app:cardCornerRadius="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/darkTheme"
+        app:layout_constraintTop_toBottomOf="@+id/themesTitle" />
+
+    <TextView
+        android:id="@+id/lightThemeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I like staring at the sun"
+        app:layout_constraintTop_toTopOf="@+id/lightTheme"
+        app:layout_constraintStart_toStartOf="@id/lightTheme"
+        app:layout_constraintEnd_toEndOf="@id/lightTheme"
+        android:layout_margin="16dp"
+        android:elevation="2dp"
         />
+
+    <TextView
+        android:id="@+id/lightThemeExampleText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:elevation="4dp"
+        android:text="@string/blanca_theme_example_text"
+        app:layout_constraintEnd_toEndOf="@id/lightThemeExampleBlock"
+        app:layout_constraintStart_toStartOf="@id/lightThemeExampleBlock"
+        app:layout_constraintTop_toTopOf="@+id/lightThemeExampleBlock"
+        app:layout_constraintBottom_toBottomOf="@id/lightThemeExampleBlock"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/lightThemeExampleBlock"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/blanca_light_background"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/lightTheme"
+        app:layout_constraintEnd_toEndOf="@id/lightTheme"
+        app:layout_constraintStart_toStartOf="@id/lightTheme"
+        app:layout_constraintTop_toBottomOf="@id/lightThemeTitle" />
+
+    <TextView
+        android:id="@+id/darkThemeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I like staring at the sun"
+        app:layout_constraintTop_toTopOf="@+id/darkTheme"
+        app:layout_constraintStart_toStartOf="@id/darkTheme"
+        app:layout_constraintEnd_toEndOf="@id/darkTheme"
+        android:layout_margin="16dp"
+        android:elevation="2dp"
+        />
+
+    <TextView
+        android:id="@+id/darkThemeExampleText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:elevation="4dp"
+        android:text="@string/blanca_theme_example_text"
+        app:layout_constraintEnd_toEndOf="@id/darkThemeExampleBlock"
+        app:layout_constraintStart_toStartOf="@id/darkThemeExampleBlock"
+        app:layout_constraintTop_toTopOf="@+id/darkThemeExampleBlock"
+        app:layout_constraintBottom_toBottomOf="@id/darkThemeExampleBlock"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/darkThemeExampleBlock"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/blanca_card_background_color"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/darkTheme"
+        app:layout_constraintEnd_toEndOf="@id/darkTheme"
+        app:layout_constraintStart_toStartOf="@id/darkTheme"
+        app:layout_constraintTop_toBottomOf="@id/darkThemeTitle" />
+
 
 </merge>

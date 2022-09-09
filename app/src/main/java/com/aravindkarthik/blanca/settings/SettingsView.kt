@@ -19,8 +19,6 @@ class SettingsView @JvmOverloads constructor(
 
     private val binding = BlancaSettingsLayoutBinding.inflate(LayoutInflater.from(context),this)
     fun setup(functions: List<Function>) {
-
-        binding.codeList.adapter = HelpViewAdapter(functions)
         binding.closeButton.setOnClickListener {
             (context as AppCompatActivity).onBackPressed()
         }
