@@ -2,10 +2,7 @@
 **Blanca app**
 Blanca is drawing app that allows users to draw objects on the screen using the blanca programming langauge.
 
-![Screenshot](Screenshot_1677674640.png)
-![Screenshot](Screenshot_1677674644.png)
-![Screenshot](Screenshot_1677674657.png)
-![Screenshot](Screenshot_1677675692.png)
+![Screenshot](screenshot.png)
 
 **Blanca DUMAS Interpreter**
 Blanca DUMAS Interpreter is a ~~Ultra fast~~, ~~Highly efficient~~ Functional programming language designed for drawing objects. DUMAS pronounced *dumbass* stands for Design Utility Methods only Application Syntax. DUMAS is designed to make it easier for typing code on mobile.
