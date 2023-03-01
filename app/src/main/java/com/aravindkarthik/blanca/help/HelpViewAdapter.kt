@@ -49,6 +49,7 @@ private class HelpViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
         }
 
         binding.compileFabButton.setOnClickListener {
+            binding.canvasView.clear()
             documentation.runExample.invoke(
                 binding.canvasView,
                 documentation.exampleCode

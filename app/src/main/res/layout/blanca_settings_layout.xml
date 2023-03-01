@@ -42,12 +42,13 @@
         android:id="@+id/darkTheme"
         android:layout_width="0dp"
         android:layout_height="200dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="-1dp"
         app:layout_constraintEnd_toStartOf="@+id/lightTheme"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        app:cardCornerRadius="24dp"
         app:layout_constraintTop_toBottomOf="@+id/themesTitle" />
 
     <androidx.cardview.widget.CardView
@@ -81,6 +82,7 @@
         android:layout_margin="16dp"
         android:elevation="4dp"
         android:text="@string/blanca_theme_example_text"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="@id/lightThemeExampleBlock"
         app:layout_constraintStart_toStartOf="@id/lightThemeExampleBlock"
         app:layout_constraintTop_toTopOf="@+id/lightThemeExampleBlock"
@@ -102,7 +104,7 @@
         android:id="@+id/darkThemeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I like staring at the sun"
+        android:text="I love my eyes"
         app:layout_constraintTop_toTopOf="@+id/darkTheme"
         app:layout_constraintStart_toStartOf="@id/darkTheme"
         app:layout_constraintEnd_toEndOf="@id/darkTheme"
@@ -134,5 +136,35 @@
         app:layout_constraintStart_toStartOf="@id/darkTheme"
         app:layout_constraintTop_toBottomOf="@id/darkThemeTitle" />
 
+    <TextView
+        android:id="@+id/editorTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Editor"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/darkTheme" />
 
+    <TextView
+        android:id="@+id/showLoggerOnRun"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        app:layout_constraintTop_toBottomOf="@id/editorTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/loggerToggleButton"
+        android:layout_marginTop="16dp"
+        android:textSize="24sp"
+        android:layout_marginStart="16dp"
+        android:text="Show logger on run"/>
+
+    <ToggleButton
+        android:id="@+id/loggerToggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textColor="#CFD8DC"
+        app:layout_constraintBottom_toBottomOf="@+id/showLoggerOnRun"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/showLoggerOnRun" />
 </merge>

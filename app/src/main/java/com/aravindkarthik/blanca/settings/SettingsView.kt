@@ -16,7 +16,6 @@ class SettingsView @JvmOverloads constructor(
     attributeSet: AttributeSet? = null,
     defStyle: Int = 0
 ) : ConstraintLayout(context, attributeSet, defStyle) {
-
     private val binding = BlancaSettingsLayoutBinding.inflate(LayoutInflater.from(context),this)
     fun setup(functions: List<Function>) {
         binding.closeButton.setOnClickListener {
