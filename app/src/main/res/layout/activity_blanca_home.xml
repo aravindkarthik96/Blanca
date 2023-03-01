@@ -43,6 +43,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:contentDescription="@string/menu"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:foregroundGravity="center"
+        android:src="@drawable/blanca_clean_canvas"
+        app:backgroundTint="@color/blanca_menu_button_color"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/canvasView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.aravindkarthik.blanca.ui.canvas.CanvasView
         android:id="@+id/canvasView"
         android:layout_width="0dp"
@@ -225,8 +243,8 @@
                     app:layout_constraintEnd_toEndOf="@+id/code_editor_bg"
                     app:layout_constraintStart_toEndOf="@+id/lineNumbersView"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Something is written here"
-                    tools:ignore="LabelFor" />
+                    tools:ignore="LabelFor"
+                    tools:text="Something is written here" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>
     </androidx.core.widget.NestedScrollView>

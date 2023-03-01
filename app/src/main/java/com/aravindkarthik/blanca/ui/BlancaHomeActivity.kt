@@ -39,6 +39,10 @@ class BlancaHomeActivity : AppCompatActivity() {
         binding.settingsButton.setOnClickListener {
             SettingsActivity.launch(this)
         }
+
+        binding.clearButton.setOnClickListener {
+            binding.canvasView.clear()
+        }
     }
 
     private fun setupSuggestions() {
